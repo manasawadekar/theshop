@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Yohji Korekushon Collection</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: white;
+      color: black;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 40px 0 20px;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .description {
+      max-width: 700px;
+      margin: 0 auto 20px;
+      font-size: 14px;
+    }
+
+    .button {
+      background: black;
+      color: white;
+      padding: 10px 20px;
+      display: inline-block;
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 40px;
+      border-radius: 3px;
+    }
+
+    h2 {
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      max-width: 1000px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+    }
+
+    .project-grid img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .project-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    .project-title {
+      font-size: 10px;
+      margin-top: 8px;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 768px) {
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* header */
+
+    .product-brand {
+        font-size: 0.75rem;
+        color: gray;
+    }
+
+        nav {
+      display: flex;
+      gap: 40px;
+      position: relative;
+    }
+
+    .menu-item {
+      position: relative;
+      display: inline-block;
+    }
+
+    .menu-item a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #333;
+      padding: 10px 20px;
+      display: inline-block;
+    }
+
+    .dropdown {
+      position: absolute;
+      position: fixed;
+      top: 65%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 70vw;
+      display: none;
+      z-index: 10;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .dropdown img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    .menu-item:hover .dropdown {
+      display: block;
+    }
+
+    .brand-name {
+      font-family: 'Japan Daisuki', sans-serif;
+      font-weight: bold;
+      
+    }
+
+    @font-face {
+      font-family: 'Japan Daisuki'; /* Give it any name you want */
+      src: url("/JURY/JURY/japan-daisuki/Japan\ Daisuki.otf") format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 ratio */
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      margin: 20px auto;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .menu-item a {
+      position: relative;
+      text-decoration: none;
+      color: black;
+      padding-bottom: 2px;
+    }
+
+    .menu-item a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 1px;
+      width: 0%;
+      background: black;
+      transition: width 0.3s ease;
+    }
+
+    .menu-item:hover a::after {
+      width: 100%;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <header class="w-full border-b border-gray-200">
+    <div class="flex items-center justify-between px-6 py-4">
+
+      <!-- Left: Menu Icon -->
+      <div class="flex items-center gap-4">
+        <div class="space-y-1 cursor-pointer">
+          <div class="w-6 h-0.5 bg-black"></div>
+          <div class="w-6 h-0.5 bg-black"></div>
+        </div>
+      </div>
+
+      <!-- Center: Logo -->
+      <div class="brand-name text-center text-center">
+        <h1 class="brand-name text-3xl font-bold">THE SHOP</h1>
+        <p class="brand-name text-xs tracking-widest">YOHJI KOREKUSHON</p>
+      </div>
+
+      <!-- Right: Icons & Newsletter -->
+      <div class="flex flex-col gap-2 w-fit">
+        <div class="flex justify-between items-center gap-x-10 w-full">
+
+          <div class="flex items-center gap-1 text-sm">
+            <img src="india.png" alt="IN Flag" class="h-4 w-6 object-cover" /> IN
+          </div>
+          <i class="fas fa-search"></i>
+          <i class="fas fa-user"></i>
+          <i class="far fa-heart"></i>
+          <div class="flex items-center gap-1">
+            <i class="fas fa-shopping-cart"></i><span class="text-sm">0</span>
+          </div>
+        </div>
+        <button class="w-full border rounded-full px-4 py-1 text-sm flex justify-between items-center">
+          NEWSLETTER <span>▶</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="flex justify-center gap-6 text-sm font-semibold py-2 border-t border-gray-200">
+    <div class="menu-item">
+      <a href="#">NEW ARRIVALS</a>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="menu-item">
+      <a href="#">BRANDS/Collections</a>
+      <div class="dropdown">
+        <img src="brands.png" alt="Brands">
+      </div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="menu-item">
+      <a href="#">MEN</a>
+      <div class="dropdown">
+        <img src="men.png" alt="Women">
+      </div>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="menu-item">
+      <a href="#">WOMEN</a>
+      <div class="dropdown">
+        <img src="women.png" alt="Men">
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <a href="#">Gifts</a>
+    </div>
+
+    <div class="menu-item">
+      <a href="#">Bestsellers</a>
+    </div>
+
+    <div class="menu-item">
+      <a href="news.html">News</a>
+    </div>
+
+
+      
+    </nav>
+
+    <!-- Location Bar -->
+    <div class="bg-gray-600 text-white text-center text-sm py-1">
+      Update Shipping to Canada
+    </div>
+  </header>
+
+
+  <h1>YOHJI KOREKUSHON POUR HOMME S/S 2026 COLLECTION</h1>
+
+  <div class="video-container">
+    <iframe 
+      src="https://www.youtube.com/embed/cUhUAXqj6Ko?start=8" 
+      frameborder="0" 
+      allowfullscreen
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+    </iframe>
+  </div>
+
+
+  <p class="description">
+    パリ、2025年6月26日木曜日午後8時30分コショーネポは2026春夏コレクションを発表。
+  </p>
+
+  <a href="https://www.youtube.com/watch?v=cUhUAXqj6Ko&t=8s" class="button" target="_blank">
+    View on YouTube<br>Yohji Korekushon Official
+  </a>
+
+  <h2 class="brand-name">PROJECTS</h2>
+
+  <div class="project-grid">
+    <div>
+      <img src="IMAGE 1 copy.jpeg" alt="Project 1">
+      <p class="project-title">POUR HOMME S/S 2025</p>
+    </div>
+    <div>
+      <img src="IMAGE 2 copy.jpeg" alt="Project 2">
+      <p class="project-title">POUR HOMME A/W 2025</p>
+    </div>
+    <div>
+      <img src="IMAGE 3 copy.jpeg" alt="Project 3">
+      <p class="project-title">WOMEN EMPOWERMENT</p>
+    </div>
+    <div>
+      <img src="IMAGE 4 copy.jpeg" alt="Project 4">
+      <p class="project-title">KOREKUSHON S/S 26 COLLECTION</p>
+    </div>
+  </div>
+
+<footer class="bg-gray-900 text-white mt-16">
+  <div class="max-w-screen-xl mx-auto px-6 py-20 grid grid-cols-2 md:grid-cols-6 gap-6 text-sm">
+    <div class="space-y-2">
+      <p>REGISTER</p>
+      <p>LOGIN</p>
+      <p>CART</p>
+      <p>MY PAGE</p>
+    </div>
+    <div class="space-y-2">
+      <p>NEW ARRIVALS</p>
+      <p>BESTSELLERS</p>
+      <p>GIFTS</p>
+      <p>STAFF STYLING</p>
+      <p>COLLECTION</p>
+    </div>
+    <div class="space-y-2">
+      <p>GROUND Y</p>
+      <p>Y'S</p>
+      <p>Y'S...</p>
+      <p>LIMI FEU</p>
+      <p>TEX'L</p>
+    </div>
+    <div class="space-y-2">
+      <p>discord yohji korekushon</p>
+      <p>korekushon</p>
+      <p>pour homme</p>
+      <p>y's for men</p>
+      <p>gothic collection</p>
+      <p>by reife</p>
+      <p>maison</p>
+      <p>power of the white shirt</p>
+    </div>
+    <div class="space-y-2">
+      <p>OTHER ITEM</p>
+      <p>Vintage</p>
+      <p>Y's for living</p>
+    </div>
+    <div class="space-y-2">
+      <p>COMPANY PROFILE</p>
+      <p>TERMS OF SERVICE</p>
+      <p>LEGAL NOTICE</p>
+      <p>PRIVACY POLICY</p>
+      <p>ABOUT YOHJI KOREKUSHON</p>
+    </div>
+  </div>
+  <div class="border-t border-gray-700 py-4 text-xs text-center">
+
+    <div class="flex justify-between py-4 border-gray-700 text-xs text-center w-full max-w-md mx-auto">
+      <div class="w-1/3 text-left">@2024 THE SHOP YOHJI KOREKUSHON</div>
+      <div class="w-1/3 brand-name text-center text-white">
+        <h1 class="brand-name text-2xl font-bold white">THE SHOP</h1>
+        <p class="brand-name text-xs tracking-widest">YOHJI KOREKUSHON</p>
+      </div>
+      <div class="flex gap-4">
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-linkedin-in"></i>
+      </div>
+    </div>
+  </div>
+
+  </footer>
+
+
+</body>
+</html>

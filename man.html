@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Page - Fashion Brand</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'inter', sans-serif;
+    }
+    header {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+    .product-color-btn {
+      border: 1px solid #ccc;
+      transition: transform 0.2s ease;
+    }
+    .product-color-btn:hover {
+      transform: scale(1.1);
+    }
+    footer ul li {
+      margin-bottom: 0.25rem;
+    }
+    footer ul li a {
+      color: #ddd;
+    }
+    footer ul li a:hover {
+      color: #fff;
+    }
+    .section-title {
+      font-family: 'monospace';
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    .product-card img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 0.5rem;
+    }
+    .product-title {
+      font-size: 0.9rem;
+      margin: 0.5rem 0;
+      text-transform: uppercase;
+    }
+    .product-price {
+      font-weight: bold;
+      margin-top: 0.25rem;
+    }
+    .product-brand {
+      font-size: 0.75rem;
+      color: gray;
+    }
+
+    /* Dropdown */
+    nav {
+      display: flex;
+      gap: 40px;
+      position: relative;
+    }
+
+    .menu-item {
+      position: relative;
+      display: inline-block;
+    }
+
+    .menu-item a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #333;
+      padding: 10px 20px;
+      display: inline-block;
+    }
+
+    .dropdown {
+      position: absolute;
+      position: fixed;
+      top: 65%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 70vw;
+      display: none;
+      z-index: 10;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .dropdown img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    .menu-item:hover .dropdown {
+      display: block;
+    }
+
+    .brand-name {
+      font-family: 'Japan Daisuki', sans-serif;
+      font-weight: bold;
+      
+    }
+
+    @font-face {
+      font-family: 'Japan Daisuki'; /* Give it any name you want */
+      src: url("/JURY/JURY/japan-daisuki/Japan\ Daisuki.otf") format('opentype');
+      font-weight: normal;
+      font-style: normal;
+}
+
+.menu-item a {
+  position: relative;
+  text-decoration: none;
+  color: black;
+  padding-bottom: 2px;
+}
+
+.menu-item a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 0%;
+  background: black;
+  transition: width 0.3s ease;
+}
+
+.menu-item:hover a::after {
+  width: 100%;
+}
+
+  </style>
+</head>
+<body class="bg-white text-black">
+  <!-- Navbar -->
+  <!-- HEADER -->
+  <header class="w-full border-b border-gray-200">
+    <div class="flex items-center justify-between px-6 py-4">
+
+      <!-- Left: Menu Icon -->
+      <div class="flex items-center gap-4">
+        <div class="space-y-1 cursor-pointer">
+          <div class="w-6 h-0.5 bg-black"></div>
+          <div class="w-6 h-0.5 bg-black"></div>
+        </div>
+      </div>
+
+      <!-- Center: Logo -->
+      <div class="brand-name text-center text-center">
+        <h1 class="text-3xl font-bold"><a href="index.html">THE SHOP</a></h1>
+        <p class="text-xs tracking-widest">YOHJI KOREKUSHON</p>
+      </div>
+
+      <!-- Right: Icons & Newsletter -->
+      <div class="flex flex-col gap-2 w-fit">
+        <div class="flex justify-between items-center gap-x-10 w-full">
+
+          <div class="flex items-center gap-1 text-sm">
+            <img src="india.png" alt="IN Flag" class="h-4 w-6 object-cover" /> IN
+          </div>
+          <i class="fas fa-search"></i>
+          <i class="fas fa-user"></i>
+          <i class="far fa-heart"></i>
+          <div class="flex items-center gap-1">
+            <i class="fas fa-shopping-cart"></i><span class="text-sm">0</span>
+          </div>
+        </div>
+        <button class="w-full border rounded-full px-4 py-1 text-sm flex justify-between items-center">
+          NEWSLETTER <span>▶</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="flex justify-center gap-6 text-sm font-semibold py-2 border-t border-gray-200">
+    <div class="menu-item">
+      <a href="#">NEW ARRIVALS</a>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="menu-item">
+      <a href="#">BRANDS/Collections</a>
+      <div class="dropdown">
+        <img src="brands.png" alt="Brands">
+      </div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="menu-item">
+      <a href="#">MEN</a>
+      <div class="dropdown">
+        <img src="men.png" alt="Women">
+      </div>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="menu-item">
+      <a href="#">WOMEN</a>
+      <div class="dropdown">
+        <img src="women.png" alt="Men">
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <a href="#">Gifts</a>
+    </div>
+
+    <div class="menu-item">
+      <a href="#">Bestsellers</a>
+    </div>
+
+    <div class="menu-item">
+      <a href="news.html">News</a>
+    </div>
+
+
+      
+    </nav>
+
+    <!-- Location Bar -->
+    <div class="bg-gray-600 text-white text-center text-sm py-1">
+      Update Shipping to Canada
+    </div>
+  </header>
+
+  <!-- Product Section -->
+  <main class="max-w-6xl mx-auto p-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Image -->
+      <div>
+        <img src="IMAGE 1.jpeg" alt="Main Product" class="w-full">
+        <div class="flex mt-4 space-x-2 overflow-auto">
+          <img src="IMAGE 2.jpeg" class="w-20 h-20 border cursor-pointer object-cover transition duration-300 ease-in-out hover:scale-110 hover:shadow-md hover:brightness-110">
+          <img src="IMAGE 3.jpeg" class="w-20 h-20 border cursor-pointer" style="object-fit: cover transition duration-300 ease-in-out hover:scale-110 hover:shadow-md hover:brightness-110;">
+          <img src="IMAGE 4.jpeg" class="w-20 h-20 border cursor-pointer" style="object-fit: cover transition duration-300 ease-in-out hover:scale-110 hover:shadow-md hover:brightness-110;">
+          <img src="IMAGE 5.jpeg" class="w-20 h-20 border cursor-pointer" style="object-fit: cover transition duration-300 ease-in-out hover:scale-110 hover:shadow-md hover:brightness-110;">
+          <img src="IMAGE 6.jpeg" class="w-20 h-20 border cursor-pointer" style="object-fit: cover;">
+          <img src="IMAGE 7.jpeg" class="w-20 h-20 border cursor-pointer" style="object-fit: cover;">
+          <img src="IMAGE 8.jpeg" class="w-20 h-20 border cursor-pointer" style="object-fit: cover;">
+        </div>
+      </div>
+      <!-- Info -->
+      <div class="space-y-4">
+        <h2 class="brand-name text-lg text-gray-500">TEAL</h2>
+        <h1 class="text-2xl font-semibold">"BLUE EMPHASIS" BOX COLLAR PRINTED OPEN-COLLAR SHIRT</h1>
+        <p class="text-sm font-medium">Product No: UT-B04-203-1-03</p>
+        <p class="text-2xl font-bold">USD $420</p>
+        <p class="text-sm text-gray-600">Import Duties Included.</p>
+        <div class="flex flex-col items-start space-y-4">
+          <p class="text-sm font-medium">Color</p>
+          <div class="flex space-x-2">
+            <button class="w-8 h-8 rounded-full product-color-btn bg-black"></button>
+            <p class=""text-sm font-medium"> Black</p>
+          </div>
+        </div>
+        <div class="flex flex-col items-start space-y-2">
+          <p class="text-sm font-medium mt-4">Size</p>
+          <div class="flex space-x-2"></div>
+          <button class="w-8 h-8 rounded-full border border-black text-sm font-semibold hover:bg-black hover:text-white transition">
+            M
+          </button>
+        </div>
+          <select class="border px-4 py-2 w-full">
+            <option>Details</option>
+          </select>
+          <select class="border px-4 py-2 w-full">
+            <option>Size</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+          </select>
+          <select class="border px-4 py-2 w-full">
+            <option>Service</option>
+          </select>
+          <button class="bg-black text-white px-6 py-3 w-full hover:opacity-80"><i class="fa-solid fa-cart-shopping"></i>   Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Style With --><!-- STYLE WITH -->
+    <section class="mt-16">
+    <!-- Styled Heading Bar -->
+    <div class="bg-black py-4 px-6 text-white">
+        <h2 class="brand-name text-white text-3xl font-bold tracking-wide font-mono mb-50">STYLE WITH</h2>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-6 p-6">
+        <!-- Item 1 -->
+        <div class="text-center transform transition duration-300 hover:scale-105 cursor-pointer">
+        <img src="STYLE WITH 1.jpeg" alt="Open-Collar Shirt" class="mx-auto">
+        <p class="mt-2 text-sm font-semibold tracking-wide uppercase">OPEN-COLLAR SHIRT</p>
+        </div>
+        <!-- Item 2 -->
+        <div class="text-center transform transition duration-300 hover:scale-105 cursor-pointer">
+        <img src="STYLE WITH 2.jpeg" alt="Waist String Skirt" class="mx-auto">
+        <p class="mt-2 text-sm font-semibold tracking-wide uppercase">WAIST STRING SKIRT</p>
+        </div>
+        <!-- Item 3 -->
+        <div class="text-center transform transition duration-300 hover:scale-105 cursor-pointer">
+        <img src="STYLE WITH 3.jpeg" alt="Dr Martens Shoe" class="mx-auto">
+        <p class="mt-2 text-sm font-semibold tracking-wide uppercase">DR MARTENS SHOE</p>
+        </div>
+        <!-- Item 4 -->
+        <div class="text-center transform transition duration-300 hover:scale-105 cursor-pointer">
+        <img src="STYLE WITH 4.jpeg" alt="Bead Choker" class="mx-auto">
+        <p class="mt-2 text-sm font-semibold tracking-wide uppercase">BEAD CHOKER</p>
+        </div>
+        <!-- Item 5 -->
+        <div class="text-center transform transition duration-300 hover:scale-105 cursor-pointer">
+        <img src="STYLE WITH 5.jpeg" alt="Brass Mantel Bracelet" class="mx-auto">
+        <p class="mt-2 text-sm font-semibold tracking-wide uppercase">BRASS MANTEL BRACELET</p>
+        </div>
+    </div>
+    </section>
+
+
+    <!-- YOU MAY ALSO LIKE -->
+    <section class="mt-10">
+      <h2 class="brand-name text-black text-3xl bold mb-4">YOU MAY ALSO LIKE</h2>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+        <div class="product-card transform transition duration-300 hover:scale-105 hover:shadow-lg cursor-pointer p-2 rounded">
+          <img src="I 1.jpeg" alt="Product 1">
+          <p class="product-title">"BLUE CARNATION" COLLAGE PRINTED WAIST STRING GATHERED SKIRT</p>
+          <div class="flex justify-center space-x-2">
+            <div class="w-4 h-4 bg-black border hover:bg-gray-500 scale-110 transition cursor-pointer  mx-auto ml-0"></div>
+          </div>
+          <p class="brand-name product-brand text-right">TEÄL</p>
+          <p class="product-price text-left">$265</p>
+        </div>
+        <div class="product-card transform transition duration-300 hover:scale-105 hover:shadow-lg cursor-pointer p-2 rounded">
+          <img src="I 3.jpeg" alt="Product 2">
+          <p class="product-title">CHINOISERIE - B PRINTED OPEN COLLAR SHIRT</p>
+          <div class="flex justify-center space-x-2">
+            <div class="w-4 h-4 bg-blue-300 border hover:bg-blue-700 hover:scale-110 transition cursor-pointer  mx-auto ml-0"></div>
+          </div>
+          <p class="brand-name product-brand text-right">TEÄL</p>
+          <p class="product-price text-left">$550</p>
+        </div>
+        <div class="product-card transform transition duration-300 hover:scale-105 hover:shadow-lg cursor-pointer p-2 rounded">
+          <img src="I 4.jpeg" alt="Product 3">
+          <p class="product-title">CHINOISERIE - A PRINTED OPEN COLLAR SHIRT</p>
+          <div class="flex justify-center space-x-2">
+           <div class="w-4 h-4 bg-blue-700 border hover:bg-blue-300 transition  mx-auto ml-0"></div>
+          </div>
+          <p class="brand-name product-brand text-right" >TEÄL</p>
+          <p class="product-price text-left">$330</p>
+        </div>
+        <div class="product-card transform transition duration-300 hover:scale-105 hover:shadow-lg cursor-pointer p-2 rounded">
+          <img src="I 2.jpeg" alt="Product 4">
+          <p class="product-title">CHINOISERIE - C PRINTED OPEN COLLAR SHIRT</p>
+          <div class="flex justify-center space-x-2">
+            <div class="w-4 h-4 bg-blue-900 border hover:bg-blue-300 hover:scale-110 transition cursor-pointer  mx-auto ml-0"></div>
+          </div>
+          <p class="brand-name product-brand text-right">TEÄL</p>
+          <p class="product-price text-left">$550</p>
+        </div>
+        <div class="product-card transform transition duration-300 hover:scale-105 hover:shadow-lg cursor-pointer p-2 rounded">
+          <img src="I 5.jpeg" alt="Product 5">
+          <p class="product-title">OPEN COLLAR SHIRT WITH DOUBLE CHEST POCKETS</p>
+          <div class="flex justify-center space-x-2">
+            <div class="w-4 h-4 bg-black border hover:bg-gray-500 scale-110 transition cursor-pointer  mx-auto ml-0"></div>
+          </div>
+          <p class="brand-name product-brand text-right">TEÄL</p>
+          <p class="product-price text-left">$532</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white mt-16">
+  <div class="max-w-screen-xl mx-auto px-6 py-20 grid grid-cols-2 md:grid-cols-6 gap-6 text-sm">
+    <div class="space-y-2">
+      <p>REGISTER</p>
+      <p>LOGIN</p>
+      <p>CART</p>
+      <p>MY PAGE</p>
+    </div>
+    <div class="space-y-2">
+      <p>NEW ARRIVALS</p>
+      <p>BESTSELLERS</p>
+      <p>GIFTS</p>
+      <p>STAFF STYLING</p>
+      <p>COLLECTION</p>
+    </div>
+    <div class="space-y-2">
+      <p>GROUND Y</p>
+      <p>Y'S</p>
+      <p>Y'S...</p>
+      <p>LIMI FEU</p>
+      <p>TEX'L</p>
+    </div>
+    <div class="space-y-2">
+      <p>discord yohji korekushon</p>
+      <p>korekushon</p>
+      <p>pour homme</p>
+      <p>y's for men</p>
+      <p>gothic collection</p>
+      <p>by reife</p>
+      <p>maison</p>
+      <p>power of the white shirt</p>
+    </div>
+    <div class="space-y-2">
+      <p>OTHER ITEM</p>
+      <p>Vintage</p>
+      <p>Y's for living</p>
+    </div>
+    <div class="space-y-2">
+      <p>COMPANY PROFILE</p>
+      <p>TERMS OF SERVICE</p>
+      <p>LEGAL NOTICE</p>
+      <p>PRIVACY POLICY</p>
+      <p>ABOUT YOHJI KOREKUSHON</p>
+    </div>
+  </div>
+  <div class="border-t border-gray-700 py-4 text-xs text-center">
+
+    <div class="flex justify-between py-4 border-gray-700 text-xs text-center w-full max-w-md mx-auto">
+      <div class="w-1/3 text-left">@2024 THE SHOP YOHJI KOREKUSHON</div>
+      <div class="w-1/3 brand-name text-center text-white">
+        <h1 class="text-3xl font-bold white">THE SHOP</h1>
+        <p class="text-xs tracking-widest">YOHJI KOREKUSHON</p>
+      </div>
+      <div class="flex gap-4">
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-linkedin-in"></i>
+      </div>
+    </div>
+  </div>
+
+  </footer>
+</body>
+</html>
